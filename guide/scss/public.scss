@@ -86,7 +86,6 @@
 }
 
 
-
 * {
   &, &:after, &:before {
     vertical-align: top;
@@ -425,24 +424,28 @@ html {
           .logo {
             display: inline-block;
             width: 100%;
-            height: $mobileLogoHeight;
             color: rgba(255, 255, 255, 1);
             font-weight: bolder;
             background-color: rgba(47, 188, 175, 1);
+            padding: 10px 5px 20px 5px;
             @media screen and (min-width: $mediaTabletWidth) {
               display: none;
             }
             > div {
-              padding: 0 5px;
 
               &:first-child {
-                font-size: 30px;
+                font-size: 35px;
                 text-align: left;
                 letter-spacing: 2px;
+                padding-left: 5px;
+                padding-bottom: 3px;
               }
               &:last-child {
-                font-size: 23px;
+                border-top: 1px solid rgba(255, 255, 255, .3);
+                font-size: 20px;
                 text-align: right;
+                padding-right: 5px;
+                padding-top: 7px;
               }
             }
           }
