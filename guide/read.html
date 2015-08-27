@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tw">
+  <head>
+    <meta http-equiv="Content-Language" content="zh-tw" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+
+    <title></title>
+
+    <meta name="robots" content="index,follow" />
+
+    <meta name="author" content="吳政賢(OA Wu)" />
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+
+    <meta property="fb:admins" content="100000100541088" />
+    <meta property="fb:app_id" content="640377126095413" />
+
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <meta property="og:type" content="city" />
+    <meta property="og:image" content="" alt="" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <link href="css/prettify/prettify.css" rel="stylesheet" type="text/css">
+    <link href="css/public.css" rel="stylesheet" type="text/css" />
+    <link href="css/crud.css" rel="stylesheet" type="text/css" />
+
+    <script src="js/jquery_v1.10.2/jquery-1.10.2.min.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/prettify/prettify.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/public.js" language="javascript" type="text/javascript" ></script>
+
+  </head>
+  <body lang="zh-tw">
+    <div id='container'>
+      <div class='wrapper'>
+        <div class='wrapper_right'>
+          <h1>讀取 Read</h1>
+          <div class='desc'>格式：<span>Class::find($unit, $conditions);</span>。</div>
+          <ul class='l b'>
+            <li>$unit - 字串，爲回傳格式，有 one、all 兩種，one 回傳單筆物件，all 則是物件陣列。</li>
+            <li>$conditions - 陣列，查詢條件，分別有 must、limit、range、offset、select、should、must_not、script_fields 條件設定，細節如下：</li>
+          </ul>
+          <ul class='o'>
+            <li>must - 必須符合條件</li>
+            <li>limit - 回傳長度</li>
+            <li>range - 範圍條件</li>
+            <li>offset - 起始位移點</li>
+            <li>select - 回傳 fields</li>
+            <li>should - 模糊條件</li>
+            <li>must_not - 完全未符合</li>
+            <li>script_fields - script</li>
+          </ul>
+
+          <h2>單筆查詢</h2>
+          <div class='desc'>格式：<span>Class::find('one', $conditions);</span>，查詢方式使用 <b>find</b>，第一參數為 <b>one</b>，即回傳條件之下的<b>第一筆物件</b>，若無查詢結果則回傳 <b>null</b>。</div>
+
+          <div class='tabs'>
+            <div><div>PHP</div><div>結果</div></div>
+            <div>
+              <div>
+                <pre class='php prettyprint'>
+                  // 藉由 id 等於 1
+                  $user = User::find('one', array(
+                      'must' => array('id' => 1)
+                    ));
+
+                  echo $user->name; // 印出 OA Wu
+                </pre>
+              </div>
+              <div class='e'>
+                OA Wu
+              </div>
+            </div>
+          </div>
+
+
+          <h2>多筆查詢</h2>
+          <div class='desc'>格式：<span>Class::find('all', $conditions);</span>，查詢方式使用 <b>find</b>，第一參數為 <b>all</b>，即回傳條件之下的<b>物件陣列</b>，若無查詢結果則回傳<b>空陣列</b>。</div>
+
+          <div class='tabs'>
+            <div><div>PHP</div><div>結果</div></div>
+            <div>
+              <div>
+                <pre class='php prettyprint'>
+                  // 藉由 name 相似於字串 Wu
+                  $user = User::find('all', array(
+                      'should' => array('name' => 'Wu')
+                    ));
+                  echo count($user); // 印出 2
+                </pre>
+              </div>
+              <div class='e'>
+                2
+              </div>
+            </div>
+          </div>
+
+
+          <h2>多項條件查詢</h2>
+
+          <div class='tabs'>
+            <div><div>PHP</div><div>結果</div></div>
+            <div>
+              <div>
+                <pre class='php prettyprint'>
+                  $user = User::find('all', array(
+                      'must' => array('id' => 1),                                 // id 一定要為 1
+                      'limit' => 10,                                              // 取前 10 筆
+                      'range' => array('age' => array('from' => 0, 'to' => 100)), // 設定 age 範圍 0~100
+                      'offset' => 0,                                              // 起始位移值 0
+                      'select' => array('id', 'account', 'name'),                 // 取出 id、account、name
+                      'should' => array('name' => 'Wu'),                          // 如果有 Wu
+                      'must_not' => array('name' => 'A'),                         // 不能有 A
+                      'script_fields' => array('var' => array(                    // 新增一個變數，並且使用 script 處理
+                                                    'script' => "doc['age'].value / 2 + constantVal",
+                                                    'params' => array(
+                                                        'constantVal' => 10
+                                                      )
+                                                  ))
+                    ));
+                  print_r($user[0]->fields); // 印出第一筆所有欄位資料
+                </pre>
+              </div>
+              <div>
+                <pre class='php prettyprint'>
+                  Array
+                  (
+                      [name] => OA Wu
+                      [id] => 1
+                      [account] => OA
+                      [var] => 20
+                  )
+                </pre>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

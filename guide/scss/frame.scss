@@ -7,6 +7,8 @@
 
 $navHeight: 55px;
 $wrapperLeftWidth: 280px;
+$logoWidth: 350px;
+$wrapperMobileLeftWidth: 280px;
 $navRightWidth: 110px;
 $mobileHeight: 75px;
 $mobileHorizontalPadding: 10px;
@@ -45,7 +47,7 @@ html {
           height: 100%;
         }
         .logo {
-          width: $wrapperLeftWidth;
+          width: $logoWidth;
           height: 100%;
           font-size: 28px;
           color: rgba(255, 255, 255, 1);
@@ -59,7 +61,7 @@ html {
         }
         .left {
           text-align: left;
-          width: calc(100% - #{$wrapperLeftWidth + $navRightWidth});
+          width: calc(100% - #{$logoWidth + $navRightWidth});
 
           @media screen and (min-width: 0px) and (max-width: #{$mediaTabletWidth - 1px}) {
             width: calc(100% - #{0 + $navRightWidth});
@@ -287,7 +289,7 @@ html {
 
           @media screen and (min-width: 0px) and (max-width: #{$mediaTabletWidth - 1px}) {
             position: fixed;
-            left: 0 - $wrapperLeftWidth - 2px;
+            left: 0 - $wrapperMobileLeftWidth - 2px;
             top: 0;
             display: inline-block;
             height: 100%;

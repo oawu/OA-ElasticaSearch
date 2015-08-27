@@ -48,7 +48,7 @@ class User extends ElasticaSearch {
 
 #### Sample
 
-* 單一資料新增，使用 `create`，並新增成功後回傳一個 **ElasticaSearch** 物件，若是失敗則回傳**null**。
+* 單一資料新增，使用 `create`，並新增成功後回傳一個 **ElasticaSearch** 物件，若是失敗則回傳 **null**。
 
 ```
 $params = array(
@@ -64,7 +64,7 @@ $params = array(
 $user = User::create($params);
 
 ```
-![info/img/01.png](info/img/01.png)
+![guide/img/01.png](guide/img/01.png)
 
 
 ### 多筆新增
@@ -74,7 +74,7 @@ $user = User::create($params);
 
 #### Sample
 
-* 多比新增，使用 `createMany`，成功後回傳 **ElasticaSearch 物件陣列**，若是失敗則回傳**空陣列**。
+* 多筆新增，使用 `createMany`，成功後回傳 **ElasticaSearch 物件陣列**，若是失敗則回傳**空陣列**。
 
 ```
 $params1 = array(
@@ -96,7 +96,7 @@ $params2 = array(
 // 新增多筆資料
 $users = User::createMany(array($params1, $params2));
 ```
-![info/img/02.png](info/img/02.png)
+![guide/img/02.png](guide/img/02.png)
 
 > 若是新增的 primary_key 的資料已經存在，則會覆蓋掉原本的資料。
 
@@ -122,7 +122,7 @@ $users = User::createMany(array($params1, $params2));
 
 #### Sample
 
-* 查詢方式使用 **find**，單筆查詢期第一參數為 **one**，即回傳條件之下的第一筆**物件**，若無查詢結果則回傳**null**。
+* 查詢方式使用 **find**，第一參數為 **one**，即回傳條件之下的第一筆**物件**，若無查詢結果則回傳 **null**。
  
 ```
 // 藉由 id 等於 1
@@ -133,7 +133,7 @@ $user = User::find('one', array(
 echo $user->name; // 印出 OA Wu
 ```
 
-* 多筆查詢方式使用 **find**，單筆查詢期第一參數為 **all**，即回傳條件之下的**物件陣列**，若無查詢結果則回傳**空陣列**。
+* 查詢方式使用 **find**，第一參數為 **all**，即回傳條件之下的**物件陣列**，若無查詢結果則回傳**空陣列**。
 
 ```
 // 藉由 name 相似於字串 Wu

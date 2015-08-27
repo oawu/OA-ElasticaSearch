@@ -22,7 +22,7 @@ $(function () {
       items: [
         {target: '_self', href: 'create.html', text: '新增 (Create)', class: 'icon-plus', },
         {target: '_self', href: 'read.html', text: '讀取 (Read)', class: 'icon-file-text2', },
-        {target: '_self', href: 'update.html', text: '修改 (Update)', class: 'icon-pencil2', },
+        {target: '_self', href: 'update.html', text: '更新 (Update)', class: 'icon-pencil2', },
         {target: '_self', href: 'delete.html', text: '刪除 (Delete)', class: 'icon-bin', },
       ]
     },
