@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?kimja3');
-	src:url('fonts/icomoon.eot?#iefixkimja3') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?kimja3') format('truetype'),
-		url('fonts/icomoon.woff?kimja3') format('woff'),
-		url('fonts/icomoon.svg?kimja3#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?tpdkz4');
+	src:url('fonts/icomoon.eot?#iefixtpdkz4') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?tpdkz4') format('truetype'),
+		url('fonts/icomoon.woff?tpdkz4') format('woff'),
+		url('fonts/icomoon.svg?tpdkz4#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -28,6 +28,12 @@
 }
 .icon-home:before {
 	content: "\e601";
+}
+.icon-list2:before {
+	content: "\e602";
+}
+.icon-github:before {
+	content: "\e603";
 }
 .icon-link-external:before {
 	content: "\e605";
@@ -71,9 +77,9 @@
 .icon-more:before {
 	content: "\f833";
 }
-.icon-list2:before {
-	content: "\e602";
+.icon-user:before {
+	content: "\e604";
 }
-.icon-github:before {
-	content: "\e603";
+.icon-code:before {
+	content: "\e607";
 }

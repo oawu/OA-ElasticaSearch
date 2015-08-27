@@ -5,6 +5,7 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
+spl_autoload_register (array ('Elastica_Core', '__autoload_elastica'));
 
 class Elastica_Core {
   protected $CI     = null;
@@ -12,14 +13,22 @@ class Elastica_Core {
   protected static $client = null;
   protected static $config = array (
                       'is_enabled' => true,
-                      'ip' => 'localhost',
+                      'ip' => '127.0.0.1',
                       'port' => '9200',
-                      'index' => 'oatest',
+                      'index' => 'index',
                       'create_limit' => 1000);
 
   public function __construct () {
     if (!(self::$config['is_enabled']))
       return;
+
+  }
+
+  static function __autoload_elastica ($class) {
+    if (stripos ($class, 'Elastica') !== FALSE) {
+      $path = str_replace ('_', DIRECTORY_SEPARATOR, $class);
+      require_once $path . '.php';
+    }
   }
 
   protected static function client () {
@@ -47,7 +56,24 @@ class Elastica_Core {
     return null;
   }
 
-  private static function delete_index () {
+  protected static function deleteType ($type) {
+    if (!($isUse = self::$config['is_enabled']))
+      return false;
+
+    if (!($index = self::index ()))
+      return false;
+
+    if (!$index->exists ())
+      return false;
+
+    if (!($type = $index->getType ($type)))
+      return false;
+
+    return !$type->delete ()
+                 ->hasError ();
+  }
+
+  protected static function deleteIndex () {
     if (!($isUse = self::$config['is_enabled']))
       return false;
 

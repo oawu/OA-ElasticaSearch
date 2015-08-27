@@ -54,7 +54,7 @@ $(function () {
   };
 
   var logo = "OA's Elastica Search";
-  var title = ''
+  var title = '';
   var now = document.URL.replace (/^.*[\\\/]/, '');
   now = now === '' ? 'index.html' : now;
 
@@ -62,8 +62,11 @@ $(function () {
     {
       group: '主選單',
       items: [
-        {target: '_self', href: 'index.html', text: '首頁', class: 'icon-home', },
-        {target: '_self', href: 'struct.html', text: '結構', class: 'icon-list2', },
+        {target: '_self', href: 'index.html', text: '首頁簡介', class: 'icon-home', },
+        {target: '_self', href: 'struct.html', text: '結構說明', class: 'icon-list2', },
+        {target: '_self', href: 'https://github.com/comdan66/OA-ElasticaSearch/archive/master.zip', text: '原始碼 下載', class: 'icon-in', },
+        {target: '_blank', href: 'https://github.com/comdan66/OA-ElasticaSearch', text: 'GitHub 原碼', class: 'icon-code', },
+        {target: '_self', href: 'about.html', text: '關於作品', class: 'icon-exclamation', },
       ]
     },
     {
@@ -76,11 +79,11 @@ $(function () {
       ]
     },
     {
-      group: '其他',
+      group: '作者',
       items: [
-        {target: '_self', href: 'github.html', text: 'GitHub', class: 'icon-github', },
-        {target: '_self', href: 'https://github.com/comdan66/OA-ElasticaSearch/archive/master.zip', text: '下載', class: 'icon-in', },
-        {target: '_self', href: 'about.html', text: '關於', class: 'icon-exclamation', },
+        {target: '_blank', href: 'http://www.ioa.tw', text: '作者', class: 'icon-user', },
+        {target: '_blank', href: 'https://github.com/comdan66', text: 'GitHub', class: 'icon-github', },
+        {target: '_blank', href: 'https://www.facebook.com/comdan66', text: '臉書', class: 'icon-facebook-square', },
         {target: '_blank', href: 'http://comdan66.github.io/', text: '更多', class: 'icon-more', },
       ]
     }

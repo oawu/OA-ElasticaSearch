@@ -54,16 +54,19 @@
               <div>
                 <pre class='php prettyprint'>
                   // 藉由 id 等於 1
-                  $user = User::find('one', array(
-                      'must' => array('id' => 1)
+                  $user = User::find(&#39;one&#39;, array(
+                      &#39;must&#39; =&gt; array(&#39;id&#39; =&gt; 1)
                     ));
 
-                  $user->account = 'comdan66'; // 設定欄位
-                  $user->save(); // 儲存更新
+                  // 設定欄位
+                  $user-&gt;account = &#39;comdan66&#39;;
+                   
+                   // 儲存更新
+                  $user-&gt;save();
                 </pre>
               </div>
               <div class='i'>
-                <img src='img/03.png' />
+                <img src='img/06.png' />
               </div>
             </div>
           </div>
@@ -82,12 +85,12 @@
                 <pre class='php prettyprint'>
                   // 欲新增的資料
                   $params = array(
-                      'id' => 1,
-                      'account' => 'comdan66',
-                      'name' => "OA Wu",
-                      'age' => 30,
-                      'skills' => array(
-                          'php', 'java', 'c'
+                      'id' =&gt; 1,
+                      'account' =&gt; 'oa',
+                      'name' =&gt; &quot;吳政賢&quot;,
+                      'age' =&gt; 30,
+                      'skills' =&gt; array(
+                          'JavaScript', 'java', 'object-C'
                         )
                     );
 
@@ -96,7 +99,7 @@
                 </pre>
               </div>
               <div class='i'>
-                <img src='img/04.png' />
+                <img src='img/07.png' />
               </div>
             </div>
           </div>
@@ -113,28 +116,29 @@
             <div>
               <div>
                 <pre class='php prettyprint'>
-                  $params1 = array(
-                      'id' => 1,
-                      'account' => 'comdan66',
-                      'name' => "OA Wu",
-                      'age' => 20,
-                      'skills' => array(
-                          'php', 'java', 'c'
-                        )
-                    );
-                  $params2 = array(
-                      'id' => 2,
-                      'account' => 'comdan99',
-                      'name' => "OB Wu",
-                      'age' => 30,
-                      'skills' => array()
+                  $params = array(
+                      array(
+                        'id' =&gt; 1,
+                        'account' =&gt; 'oa',
+                        'name' =&gt; &quot;吳政賢&quot;,
+                        'age' =&gt; 30,
+                        'skills' =&gt; array(
+                            'JavaScript', 'java', 'object-C'
+                          )
+                      ), array(
+                        'id' =&gt; 2,
+                        'account' =&gt; 'Linux',
+                        'name' =&gt; &quot;OB Wu&quot;,
+                        'age' =&gt; 18,
+                        'skills' =&gt; array()
+                      )
                     );
                   // 依據各筆資料的 primary_key 欄位更新該筆資料
-                  $users = User::updateMany(array($params1, $params2));
+                  $users = User::updateMany($params);
                 </pre>
               </div>
               <div class='i'>
-                <img src='img/05.png' />
+                <img src='img/08.png' />
               </div>
             </div>
           </div>

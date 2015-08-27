@@ -61,7 +61,7 @@
           </ul>
 
           <h2>單筆查詢</h2>
-          <div class='desc'>格式：<span>Class::find('one', $conditions);</span>，查詢方式使用 <b>find</b>，第一參數為 <b>one</b>，即回傳條件之下的<b>第一筆物件</b>，若無查詢結果則回傳 <b>null</b>。</div>
+          <div class='desc'>格式：<span>Class::find('one', $conditions);</span>，查詢方式使用 <b>find</b>，第一參數為 <b>one</b>，即回傳條件之下的<b>第一筆物件</b>，若無查詢結果則回傳 <b>null</b>，若查詢條件結果會是多筆的狀況，則會<b>回傳第一筆</b>。</div>
 
           <div class='tabs'>
             <div><div>PHP</div><div>結果</div></div>
@@ -70,14 +70,21 @@
                 <pre class='php prettyprint'>
                   // 藉由 id 等於 1
                   $user = User::find('one', array(
-                      'must' => array('id' => 1)
+                      'must' =&gt; array('id' =&gt; 1)
                     ));
 
-                  echo $user->name; // 印出 OA Wu
+                  // 印出其詳細資料
+                  echo 'ID: ' . $user-&gt;id . '&lt;br/&gt;';
+                  echo 'Account: ' . $user-&gt;account . '&lt;br/&gt;';
+                  echo 'Name: ' . $user-&gt;name . '&lt;br/&gt;';
+                  echo 'Age: ' . $user-&gt;age . '&lt;br/&gt;';
+
+                  echo &quot;Skills:&quot;;
+                  print_r($user-&gt;skills); 
                 </pre>
               </div>
-              <div class='e'>
-                OA Wu
+              <div class='i'>
+                <img src='img/03.png' />
               </div>
             </div>
           </div>
@@ -92,14 +99,29 @@
               <div>
                 <pre class='php prettyprint'>
                   // 藉由 name 相似於字串 Wu
-                  $user = User::find('all', array(
-                      'should' => array('name' => 'Wu')
+                  $users = User::find('all', array(
+                      'should' =&gt; array('name' =&gt; 'Wu')
                     ));
-                  echo count($user); // 印出 2
+                  echo '&lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;&lt;pre&gt;';
+
+                  // 印出總數
+                  echo 'Count: ' . count($users) . '&lt;hr/&gt;';
+
+                  // 使用迴圈將其陣列物件內容印出
+                  foreach ($users as $user) {
+                    echo 'ID: ' . $user-&gt;id . '&lt;br/&gt;';
+                    echo 'Account: ' . $user-&gt;account . '&lt;br/&gt;';
+                    echo 'Name: ' . $user-&gt;name . '&lt;br/&gt;';
+                    echo 'Age: ' . $user-&gt;age . '&lt;br/&gt;';
+
+                    echo &quot;Skills:&quot;;
+                    print_r($user-&gt;skills); 
+                    echo &quot;&lt;br/&gt;&quot;;
+                  }
                 </pre>
               </div>
-              <div class='e'>
-                2
+              <div class='i'>
+                <img src='img/04.png' />
               </div>
             </div>
           </div>
@@ -112,34 +134,29 @@
             <div>
               <div>
                 <pre class='php prettyprint'>
+                  // 依照不同條件綜合查詢
                   $user = User::find('all', array(
-                      'must' => array('id' => 1),                                 // id 一定要為 1
-                      'limit' => 10,                                              // 取前 10 筆
-                      'range' => array('age' => array('from' => 0, 'to' => 100)), // 設定 age 範圍 0~100
-                      'offset' => 0,                                              // 起始位移值 0
-                      'select' => array('id', 'account', 'name'),                 // 取出 id、account、name
-                      'should' => array('name' => 'Wu'),                          // 如果有 Wu
-                      'must_not' => array('name' => 'A'),                         // 不能有 A
-                      'script_fields' => array('var' => array(                    // 新增一個變數，並且使用 script 處理
-                                                    'script' => "doc['age'].value / 2 + constantVal",
-                                                    'params' => array(
-                                                        'constantVal' => 10
+                      'must' =&gt; array('id' =&gt; 1),                                 // id 一定要為 1
+                      'limit' =&gt; 10,                                              // 取前 10 筆
+                      'range' =&gt; array('age' =&gt; array('from' =&gt; 0, 'to' =&gt; 100)), // 設定 age 範圍 0~100
+                      'offset' =&gt; 0,                                              // 起始位移值 0
+                      'select' =&gt; array('id', 'account', 'name'),                 // 取出 id、account、name
+                      'should' =&gt; array('name' =&gt; 'Wu'),                          // 如果有 Wu
+                      'must_not' =&gt; array('name' =&gt; 'A'),                         // 不能有 A
+                      'script_fields' =&gt; array('var' =&gt; array(                    // 新增一個變數，並且使用 script 處理
+                                                    'script' =&gt; &quot;doc['age'].value / 2 + constantVal&quot;,
+                                                    'params' =&gt; array(
+                                                        'constantVal' =&gt; 10
                                                       )
                                                   ))
                     ));
-                  print_r($user[0]->fields); // 印出第一筆所有欄位資料
+
+                  // 印出第一筆所有欄位資料
+                  print_r($user[0]-&gt;fields);
                 </pre>
               </div>
-              <div>
-                <pre class='php prettyprint'>
-                  Array
-                  (
-                      [name] => OA Wu
-                      [id] => 1
-                      [account] => OA
-                      [var] => 20
-                  )
-                </pre>
+              <div class='i'>
+                <img src='img/05.png' />
               </div>
             </div>
           </div>

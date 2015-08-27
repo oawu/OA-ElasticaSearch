@@ -27,6 +27,12 @@
 .icon-home:before {
   content: "\e601";
 }
+.icon-list2:before {
+  content: "\e602";
+}
+.icon-github:before {
+  content: "\e603";
+}
 .icon-link-external:before {
   content: "\e605";
 }
@@ -69,11 +75,11 @@
 .icon-more:before {
   content: "\f833";
 }
-.icon-list2:before {
-  content: "\e602";
+.icon-user:before {
+  content: "\e604";
 }
-.icon-github:before {
-  content: "\e603";
+.icon-code:before {
+  content: "\e607";
 }
 
 
@@ -560,7 +566,8 @@ html {
         bottom: 30px;
         width: 44px;
         height: 44px;
-        line-height: 40px;
+        line-height: 44px;
+        font-size: 30px;
         @include box-shadow(0 3px 4px 1px rgba(39, 40, 34, .25), inset 0 1px 2px rgba(255, 255, 255, .4));
       }
       @media screen and (min-width: $mediaMobileWidth) and (max-width: #{$mainWidth - 1px}) {

@@ -43,12 +43,36 @@
     <div id='container'>
       <div class='wrapper'>
         <div class='wrapper_right'>
-          <h1>新增 Create</h1>
+          <h1>刪除 Delete</h1>
 
-          <h2>單筆新增</h2>
-          <div class='desc'>格式：<span>Class::create($params);</span>，單一資料新增，並新增成功後回傳一個 <b>ElasticaSearch 物件</b>，若是失敗則回傳 <b>null</b>。</div>
+          <h2>物件資料刪除</h2>
+          <div class='desc'>格式：<span>$objext->delete();</span>。</div>
+
+          <div class='tabs'>
+            <div><div>PHP</div><div>結果</div></div>
+            <div>
+              <div>
+                <pre class='php prettyprint'>
+                  // 藉由 id 等於 1
+                  $user = User::find('one', array(
+                      'must' =&gt; array('id' =&gt; 1)
+                    ));
+
+                  // 刪除
+                  $user-&gt;delete();
+                </pre>
+              </div>
+              <div class='i'>
+                <img src='img/09.png' />
+              </div>
+            </div>
+          </div>
+
+
+          <h2>多筆刪除</h2>
+          <div class='desc'>格式：<span>Class::deleteMany($ids);</span>。</div>
           <ul class='l'>
-            <li>$params - 陣列，存入資料陣列，其 key 為 field 名稱，value 為 field 值。</li>
+            <li>$ids - 陣列，primary_key 欄位的陣列。</li>
           </ul>
 
           <div class='tabs'>
@@ -56,65 +80,17 @@
             <div>
               <div>
                 <pre class='php prettyprint'>
-                  $params = array(
-                      'id' =&gt; 1,
-                      'account' =&gt; 'OA',
-                      'name' =&gt; &quot;OA Wu&quot;,
-                      'age' =&gt; 20,
-                      'skills' =&gt; array(
-                          'PHP', 'Java', 'C'
-                        )
-                    );
-                  // 新增一筆資料
-                  $user = User::create($params);
+                  $ids = array(1, 2, 3);
+
+                  // 依據 primary_key 欄位值陣列刪除
+                  User::deleteMany ($ids);
                 </pre>
               </div>
               <div class='i'>
-                <img src='img/01.png' />
+                <img src='img/06.png' />
               </div>
             </div>
           </div>
-
-
-          <h2>多筆新增</h2>
-          <div class='desc'>格式：<span>Class::createMany($paramsList);</span>，多筆新增，使用 createMany，成功後回傳 <b>ElasticaSearch 物件陣列</b>，若是失敗則回傳 <b>空陣列</b>。</div>
-          <ul class='l'>
-            <li>$paramsList - 陣列，多筆資料的陣列。</li>
-          </ul>
-
-          <div class='tabs'>
-            <div><div>PHP</div><div>結果</div></div>
-            <div>
-              <div>
-                <pre class='php prettyprint'>
-                  $params1 = array(
-                      'id' =&gt; 1,
-                      'account' =&gt; 'OA',
-                      'name' =&gt; &quot;OA Wu&quot;,
-                      'age' =&gt; 20,
-                      'skills' =&gt; array(
-                          'PHP', 'Java', 'C'
-                        )
-                    );
-                  $params2 = array(
-                      'id' =&gt; 2,
-                      'account' =&gt; 'OB',
-                      'name' =&gt; &quot;OB Wu&quot;,
-                      'age' =&gt; 20,
-                      'skills' =&gt; array(
-                          'MySQL'
-                        )
-                    );
-                  // 新增多筆資料
-                  $users = User::createMany(array($params1, $params2));
-                </pre>
-              </div>
-              <div class='i'>
-                <img src='img/02.png' />
-              </div>
-            </div>
-          </div>
-
 
         </div>
       </div>

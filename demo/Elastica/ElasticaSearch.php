@@ -5,18 +5,9 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
+error_reporting(E_ALL ^ E_STRICT);
+
 include_once 'Core.php';
-
-class Autoload {
-  static function __autoload_elastica ($class) {
-    if (stripos ($class, 'Elastica') !== FALSE) {
-      $path = str_replace ('_', DIRECTORY_SEPARATOR, $class);
-      require_once $path . '.php';
-    }
-  }
-}
-
-spl_autoload_register (array ('Autoload', '__autoload_elastica'));
 
 class ElasticaSearch extends Elastica_Core {
   static $type_name = '';
@@ -50,6 +41,12 @@ class ElasticaSearch extends Elastica_Core {
       return $this->notColumns[$column] = $value;
   }
 
+  protected static function deleteType ($type) {
+    return parent::deleteType ($type);
+  }
+  public static function deleteIndex () {
+    return parent::deleteIndex ();
+  }
   public static function typeName () {
     if (self::$type_name)
       return self::$type_name;
@@ -154,5 +151,8 @@ class ElasticaSearch extends Elastica_Core {
   }
   public static function deleteMany ($ids) {
     return self::destroy ($ids);
+  }
+  public static function clean () {
+    return self::deleteType (self::$type_name);
   }
 }
