@@ -64,7 +64,7 @@ $params = array(
 $user = User::create($params);
 
 ```
-![img/01.png](img/01.png)
+![info/img/01.png](info/img/01.png)
 
 
 ### 多筆新增
@@ -96,7 +96,7 @@ $params2 = array(
 // 新增多筆資料
 $users = User::createMany(array($params1, $params2));
 ```
-![img/02.png](img/02.png)
+![info/img/02.png](info/img/02.png)
 
 > 若是新增的 primary_key 的資料已經存在，則會覆蓋掉原本的資料。
 

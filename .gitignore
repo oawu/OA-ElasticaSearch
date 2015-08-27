@@ -1,8 +1,8 @@
 .DS_Store
 sftp-config*
 
-cmd/.sass-cache/*
+guide/cmd/.sass-cache/*
 
-cmd/node_modules/*
-cmd/.sass-cache/*
-cmd/npm-debug.log
+guide/cmd/node_modules/*
+guide/cmd/.sass-cache/*
+guide/cmd/npm-debug.log
