@@ -75,6 +75,13 @@
         a {
           @include a(1px);
         }
+        span {
+          padding: 0 4px;
+          font-weight: bold;
+          border: 1px solid rgba(254, 236, 191, .7);
+          background-color: rgba(254, 236, 191, .5);
+          @include border-radius(3px);
+        }
       }
     }
     &.o {
