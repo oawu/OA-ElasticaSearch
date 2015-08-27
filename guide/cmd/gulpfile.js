@@ -10,7 +10,7 @@ gulp.task ('default', function () {
 
   livereload.listen ();
 
-  ['./root/guide/*.html', './root/guide/css/**/*.css', './root/guide/js/**/*.js'].forEach (function (t) {
+  ['./root/*.html', './root/css/**/*.css', './root/js/**/*.js'].forEach (function (t) {
     gulp.watch (t).on ('change', function () {
       gulp.run ('reload');
     });
@@ -28,14 +28,14 @@ gulp.task ('minify', function () {
   gulp.run ('minify-html');
 });
 gulp.task ('js-uglify', function () {
-  gulp.src ('./root/guide/js/**/*.js')
+  gulp.src ('./root/js/**/*.js')
       .pipe (uglifyJS ())
-      .pipe (gulp.dest ('./root/guide/js/'));
+      .pipe (gulp.dest ('./root/js/'));
 });
 gulp.task ('minify-html', function () {
-  gulp.src ('./root/guide/*.html')
+  gulp.src ('./root/*.html')
       .pipe (htmlmin ({collapseWhitespace: true}))
-      .pipe (gulp.dest ('./root/guide/'));
+      .pipe (gulp.dest ('./root/'));
 });
 
 // ===================================================
