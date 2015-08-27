@@ -45,7 +45,7 @@
         <div class='wrapper_right'>
           <h1>更新 Update</h1>
 
-          <h2>物件資料更新</h2>
+          <h2 class='save'>物件資料更新</h2>
           <div class='desc'>格式：<span>$objext->save();</span>。</div>
 
           <div class='tabs'>
@@ -72,7 +72,7 @@
           </div>
 
 
-          <h2>單筆資料更新</h2>
+          <h2 class='update'>單筆資料更新</h2>
           <div class='desc'>格式：<span>Class::update($params);</span>。</div>
           <ul class='l'>
             <li>$params - 陣列，依據 primary_key 欄位更新該筆資料，資料陣列，其 key 為 field 名稱，value 為 field 值。</li>
@@ -105,7 +105,7 @@
           </div>
 
 
-          <h2>多比資料更新</h2>
+          <h2 class='updateMany'>多筆資料更新</h2>
           <div class='desc'>格式：<span>Class::updateMany($params);</span>。</div>
           <ul class='l'>
             <li>$paramsList - 陣列，依據各筆的 primary_key 欄位更新。</li>

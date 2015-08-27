@@ -65,7 +65,6 @@ $(function () {
         {target: '_self', href: 'index.html', text: '首頁簡介', class: 'icon-home', },
         {target: '_self', href: 'struct.html', text: '結構說明', class: 'icon-list2', },
         {target: '_self', href: 'install.html', text: 'Mac 安裝', class: 'icon-tools', },
-        {target: '_self', href: 'about.html', text: '關於作品', class: 'icon-exclamation', },
       ]
     },
     {
@@ -96,7 +95,6 @@ $(function () {
   ];
 
   var optionMenu = [
-    {text: '關於作品', href: 'about.html', target: '_self', class: ''},
     {text: '原始碼', href: 'https://github.com/comdan66/OA-ElasticaSearch', target: '_blank', class: ''},
     {text: '更多作品', href: 'http://comdan66.github.io/', target: '_blank', class: ''},
     {text: 'GitHub', href: 'https://github.com/comdan66', target: '_blank', class: ''},
@@ -190,5 +188,9 @@ $(function () {
     });
   });
 
+  var hash = window.location.hash.trim ().slice (1);
+  if (hash && $('.' + hash).length)
+    window.body.stop ().animate ({ scrollTop: $('.' + hash).offset ().top - 60 }, 100);
+  
   window.closeLoading ();
 });

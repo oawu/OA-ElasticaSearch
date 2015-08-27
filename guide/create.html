@@ -45,7 +45,7 @@
         <div class='wrapper_right'>
           <h1>新增 Create</h1>
 
-          <h2>單筆新增</h2>
+          <h2 class='create'>單筆新增</h2>
           <div class='desc'>格式：<span>Class::create($params);</span>，單一資料新增，並新增成功後回傳一個 <b>ElasticaSearch 物件</b>，若是失敗則回傳 <b>null</b>。</div>
           <ul class='l'>
             <li>$params - 陣列，存入資料陣列，其 key 為 field 名稱，value 為 field 值。</li>
@@ -76,7 +76,7 @@
           </div>
 
 
-          <h2>多筆新增</h2>
+          <h2 class='createMany'>多筆新增</h2>
           <div class='desc'>格式：<span>Class::createMany($paramsList);</span>，多筆新增，使用 createMany，成功後回傳 <b>ElasticaSearch 物件陣列</b>，若是失敗則回傳 <b>空陣列</b>。</div>
           <ul class='l'>
             <li>$paramsList - 陣列，多筆資料的陣列。</li>

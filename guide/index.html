@@ -32,6 +32,7 @@
 
     <link href="css/prettify/prettify.css" rel="stylesheet" type="text/css">
     <link href="css/public.css" rel="stylesheet" type="text/css" />
+    <link href="css/crud.css" rel="stylesheet" type="text/css" />
 
     <script src="js/jquery_v1.10.2/jquery-1.10.2.min.js" language="javascript" type="text/javascript" ></script>
     <script src="js/prettify/prettify.js" language="javascript" type="text/javascript" ></script>
@@ -42,6 +43,65 @@
     <div id='container'>
       <div class='wrapper'>
         <div class='wrapper_right'>
+          <h1>Welcome To OA's Elastica Search!</h1>
+          <div class='info'>這是一個 Elastica Search 基本 CRUD 的使用工具，架構於 <a href='https://github.com/ruflin/Elastica' target='_blank'>Elastica Library</a>，將讀取出來的資料物件化，以及包裝成方便開發的工具。</div>
+
+          <h2>聲明</h2>
+          <div class='info'>本作品授權採用 姓名標示-非商業性 2.0 台灣 (CC BY-NC 2.0 TW) 授權，詳見 <a href='http://creativecommons.org/licenses/by-nc/2.0/tw/' target='_blank'>http://creativecommons.org/licenses/by-nc/2.0/tw/</a>。</div>
+
+          <h2>簡介</h2>
+          <ul class='i'>
+            <li>這是一套架構於 <a href='https://github.com/ruflin/Elastica' target='_blank'>Elastica Library</a> 所開發的工具，進階方便使用物件操作 Elastica Search 資料讀取。</li>
+            <li>經由各種類別方法(static)，對 Elastica Search 實作 <a href='create.html'>新增</a>、<a href='read.html'>查詢</a>、<a href='update.html'>修改</a>、<a href='delete.html'>刪除</a> 的操作。</li>
+            <li>查詢出來的每一筆資料，再將其封裝成物件單位，方便於物件化思維的設計。</li>
+            <li>每筆物件皆可繼承基礎的 <a href='update.html'>修改</a>、<a href='delete.html'>刪除</a> 的<b>實體方法</b>。</li>
+            <li>相關語法與觀念架構可以查閱 <a href='https://www.elastic.co/' target='_blank'>https://www.elastic.co/</a>。</li>
+          </ul>
+
+          <h2>目錄</h2>
+          <ul class='i'>
+            <li><a href=''>結構說明</a>
+            <li><a href=''>Mac 安裝</a>
+            <li><a href='create.html'>新增 (Create)</a>
+              <ul>
+                <li><a href='create.html#create'>單筆新增 - create()</a></li>
+                <li><a href='create.html#createMany'>多筆新增 - createMany()</a></li>
+              </ul>
+            </li>
+            <li><a href='read.html'>讀取 (Read)</a>
+              <ul>
+                <li><a href='read.html#findOne'>單筆查詢 - find('one')</a></li>
+                <li><a href='read.html#findAll'>多筆查詢 - find('all')</a></li>
+                <li><a href='read.html#findConditions'>多項條件查詢 - find('all', $conditions)</a></li>
+              </ul>
+            </li>
+            <li><a href='update.html'>更新 (Update)</a>
+              <ul>
+                <li><a href='update.html#save'>物件資料更新 - save()</a></li>
+                <li><a href='update.html#update'>單筆資料更新 - update()</a></li>
+                <li><a href='update.html#updateMany'>多筆資料更新 - updateMany()</a></li>
+              </ul>
+            </li>
+            <li><a href='delete.html'>刪除 (Delete)</a>
+              <ul>
+                <li><a href='delete.html#delete'>物件資料刪除 - delete()</a></li>
+                <li><a href='delete.html#deleteMany'>多筆刪除 - deleteMany()</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <h2>關於</h2>
+          <ul class='i'>
+            <li>作者名稱 - <a href='http://www.ioa.tw/' target='_blank'>OA Wu</a></li>
+            <li>E-mail - <a href='mailto:comdan66@gmail.com'>comdan66@gmail.com</a></li>
+            <li>作品名稱 - OA-ElasticaSearch</li>
+            <li>最新版本 - 1.1</li>
+            <li>GitHub - <a href='https://github.com/comdan66/OA-ElasticaSearch' target='_blank'>OA-ElasticaSearch</a></li>
+            <li>Reference - <a href='https://github.com/ruflin/Elastica' target='_blank'>Elastica Library</a></li>
+            <li>Reference - <a href='https://www.elastic.co/' target='_blank'>https://www.elastic.co/</a></li>
+            <li>更新日期 - 2015/08/28</li>
+          </ul>
+
         </div>
       </div>
     </div>

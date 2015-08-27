@@ -23,6 +23,30 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px;
+    + .info {
+      padding-left: 5px;
+    }
+  }
+  a {
+    &.a {
+
+        &:before {
+          display: block; 
+          content: " "; 
+          margin-top: 0 - (500px); 
+          height: (500px); 
+          visibility: hidden; 
+        } 
+    }
+  }
+  .info {
+    a {
+      @include a(1px);
+      padding: 0;
+    }
+    + h2, + a {
+      margin-top: 40px;
+    }
   }
   .desc {
     margin-top: 5px;
@@ -30,7 +54,7 @@
     + .tabs {
       margin-top: 10px;
     }
-    + h2 {
+    + h2, + a {
       margin-top: 40px;
     }
     span {
@@ -42,8 +66,16 @@
     }
   }
   ul {
-    + h2 {
+    + h2, + a {
       margin-top: 40px;
+    }
+    &.i {
+      margin-top: 3px;
+      li {
+        a {
+          @include a(1px);
+        }
+      }
     }
     &.o {
       margin-top: 0;
@@ -68,7 +100,7 @@
     padding: 10px;
     margin-left: 10px;
 
-    + h2 {
+    + h2, + a {
       margin-top: 50px;
     }
     > * {
