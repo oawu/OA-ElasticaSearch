@@ -64,8 +64,7 @@ $(function () {
       items: [
         {target: '_self', href: 'index.html', text: '首頁簡介', class: 'icon-home', },
         {target: '_self', href: 'struct.html', text: '結構說明', class: 'icon-list2', },
-        {target: '_self', href: 'https://github.com/comdan66/OA-ElasticaSearch/archive/master.zip', text: '原始碼 下載', class: 'icon-in', },
-        {target: '_blank', href: 'https://github.com/comdan66/OA-ElasticaSearch', text: 'GitHub 原碼', class: 'icon-code', },
+        {target: '_self', href: 'install.html', text: 'Mac 安裝', class: 'icon-tools', },
         {target: '_self', href: 'about.html', text: '關於作品', class: 'icon-exclamation', },
       ]
     },
@@ -76,6 +75,13 @@ $(function () {
         {target: '_self', href: 'read.html', text: '讀取 (Read)', class: 'icon-file-text2', },
         {target: '_self', href: 'update.html', text: '更新 (Update)', class: 'icon-pencil2', },
         {target: '_self', href: 'delete.html', text: '刪除 (Delete)', class: 'icon-bin', },
+      ]
+    },
+    {
+      group: '分享',
+      items: [
+        {target: '_self', href: 'https://github.com/comdan66/OA-ElasticaSearch/archive/master.zip', text: '原始碼 下載', class: 'icon-in', },
+        {target: '_blank', href: 'https://github.com/comdan66/OA-ElasticaSearch', text: 'GitHub 原碼', class: 'icon-code', },
       ]
     },
     {
