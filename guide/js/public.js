@@ -17,6 +17,7 @@ if (ENVIRONMENT == 'dev') {
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-46121102-7', 'auto');
+  ga('require', 'displayfeatures');
   ga('send', 'pageview');
 }
 
