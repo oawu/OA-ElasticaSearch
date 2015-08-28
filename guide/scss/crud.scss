@@ -9,7 +9,7 @@
   text-align: left;
 
   a {
-    @include a(0, false, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 1));
+    @include a(1px, false, rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 1));
     font-weight: bold;
   }
   h1 {
@@ -32,7 +32,7 @@
     &.struct {
       padding-left: 20px;
       a {
-        @include a;
+        color: rgba(42, 90, 149, 0.7);
       }
     }
     + .desc {
@@ -56,7 +56,8 @@
   }
   .info {
     a {
-      @include a(1px);
+      // @include a(1px);
+      color: rgba(42, 90, 149, 0.7);
       padding: 0;
     }
     + h2, + a {
@@ -67,7 +68,7 @@
     margin-top: 5px;
     padding-left: 18px;
     a {
-      @include a(1px);
+      color: rgba(42, 90, 149, 0.7);
     }
     + .tabs {
       margin-top: 10px;
@@ -89,7 +90,7 @@
     &.f {
       li {
         a {
-          @include a(1px);
+          color: rgba(42, 90, 149, 0.7);
         }
         + li {
           margin-top: 8px;
@@ -107,7 +108,7 @@
       margin-top: 3px;
       li {
         a {
-          @include a(1px);
+          color: rgba(42, 90, 149, 0.7);
         }
         span {
           padding: 0 4px;
@@ -140,7 +141,7 @@
 
       li {
         a {
-          @include a(1px);
+          color: rgba(42, 90, 149, 0.7);
         }
       }
       &.b {
