@@ -32,6 +32,7 @@
 
     <link href="css/prettify/prettify.css" rel="stylesheet" type="text/css">
     <link href="css/public.css" rel="stylesheet" type="text/css" />
+    <link href="css/crud.css" rel="stylesheet" type="text/css" />
 
     <script src="js/jquery_v1.10.2/jquery-1.10.2.min.js" language="javascript" type="text/javascript" ></script>
     <script src="js/prettify/prettify.js" language="javascript" type="text/javascript" ></script>
@@ -42,6 +43,64 @@
     <div id='container'>
       <div class='wrapper'>
         <div class='wrapper_right'>
+          <h1>結構說明</h1>
+          <div class='desc'>檔案<a href='https://github.com/comdan66/OA-ElasticaSearch/archive/master.zip'>下載</a>完 或 <a href='https://github.com/comdan66/OA-ElasticaSearch' target='_blank'>git clone</a> 之後，資料夾結構如下，<b>demo</b> 資料夾下即爲 Elastica 的使用範例，<b>guide</b> 則是靜態網頁(HTML)的使用說明，Server 連線設定請編輯檔案 <span>demo/Elastica/Core.php</span>，修改其 <b>$config</b> 預設值。</div>
+          <pre class='struct'>
+OA-ElasticaSearch/
+        │
+        ├─ <a href='struct.html#demo'>demo</a>/
+        │   │
+        │   ├─ Elastica/
+        │   │     ├─ ...
+        │   │     └─ <a href='struct.html#ElasticaSearch'>ElasticaSearch.php</a>
+        │   │
+        │   ├─ searches/
+        │   │     └─ <a href='struct.html#User'>User.php</a>
+        │   │
+        │   └─ index.php
+        │
+        ├─ <a href='struct.html#guide'>guide</a>/
+        │   └─ ...
+        │
+        ├─ index.html
+        │
+        └─ readme.md
+          </pre>
+
+          <h2 class='demo'>demo 資料夾</h2>
+          <div class='desc'>demo 資料夾下，主要三個部分，檔案 <b>index.php</b> 為後端 php 的 CRUD 等使用範例，而資料夾 <b>Elastica</b> 則是 <a href='https://github.com/ruflin/Elastica' target='_blank'>Elastica Library</a>，資料夾 <b>searches</b> 則放置對應於每個 Type 的<a href='struct.html#User'>類別(Class)</a>。</div>
+
+          <h2 class='guide'>guide 資料夾</h2>
+          <div class='desc'>guide 資料夾下，主要皆為靜態網頁(HTML)，用以說明 <a href='https://github.com/comdan66/OA-ElasticaSearch' target='_blank'>OA-ElasticaSearch</a> 的使用方法。</div>
+
+          <h2 class='ElasticaSearch'>ElasticaSearch 類別</h2>
+          <div class='desc'>所有對應 Type 的物件皆繼承於此類別，此提供了多樣的類別方法、變數可以使用，其中包含了 CRUD 所使用的方法，若要刪除 index，也可以使用 <b>deleteIndex</b> 類別方法，如：<span>ElasticaSearch::deleteIndex();</span>。</div>
+
+          <h2 class='User'>對應類別(Class)</h2>
+
+          <div class='desc'>對應於 Type 的物件，其結構範例如下：</div>
+          <pre class='php prettyprint'>
+            class User extends ElasticaSearch {
+              static $primary_key = 'id';
+              static $type_name = 'users';
+
+              public function __construct ($data = array ()) {
+                parent::__construct ($data);
+              }
+            }
+          </pre>
+          <ul class='i d'>
+            <li>每個物件繼承於 ElasticaSearch，並且於類別開頭設定 primary_key、type_name 值。
+              <ul>
+                <li>$primary_key - 是用來指定哪個 field 當 _id 之使用。</li>
+                <li>$type_name - 則是設定此類別是對應於哪一個 Type。</li>
+              </ul>
+            </li>
+            <li>因繼承 ElasticaSearch 類別，所以有 <a href='create.html#create'>create</a>、<a href='create.html#createMany'>createMany</a>、<a href='read.html'>find</a>、<a href='update.html#update'>update</a>、<a href='update.html#updateMany'>updateMany</a>、<a href='delete.html#deleteMany'>deleteMany</a>、clean 的類別方法可用。</li>
+            <li>因繼承 ElasticaSearch 類別，所以單筆物件有 <a href='update.html#save'>save</a>、<a href='delete.html#delete'>delete</a> 的實體方法 以及 <b>fields</b> 的實體變數可以使用。</li>
+          </ul>
+
+
         </div>
       </div>
     </div>

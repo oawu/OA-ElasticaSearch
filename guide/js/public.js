@@ -88,7 +88,7 @@ $(function () {
       items: [
         {target: '_blank', href: 'http://www.ioa.tw', text: '作者', class: 'icon-user', },
         {target: '_blank', href: 'https://github.com/comdan66', text: 'GitHub', class: 'icon-github', },
-        {target: '_blank', href: 'https://www.facebook.com/comdan66', text: '臉書', class: 'icon-facebook-square', },
+        {target: '_blank', href: 'https://www.facebook.com/comdan66', text: 'Facebook', class: 'icon-facebook-square', },
         {target: '_blank', href: 'http://comdan66.github.io/', text: '更多', class: 'icon-more', },
       ]
     }
@@ -190,7 +190,12 @@ $(function () {
 
   var hash = window.location.hash.trim ().slice (1);
   if (hash && $('.' + hash).length)
-    window.body.stop ().animate ({ scrollTop: $('.' + hash).offset ().top - 60 }, 100);
-  
+    window.body.stop ().animate ({ scrollTop: $('.' + hash).offset ().top - 60 }, 500);
+
+  window.onhashchange = function () {
+    hash = window.location.hash.trim ().slice (1);
+    window.body.stop ().animate ({ scrollTop: $('.' + hash).offset ().top - 60 }, 500);
+  };
+
   window.closeLoading ();
 });

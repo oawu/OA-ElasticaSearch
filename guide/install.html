@@ -32,6 +32,7 @@
 
     <link href="css/prettify/prettify.css" rel="stylesheet" type="text/css">
     <link href="css/public.css" rel="stylesheet" type="text/css" />
+    <link href="css/crud.css" rel="stylesheet" type="text/css" />
 
     <script src="js/jquery_v1.10.2/jquery-1.10.2.min.js" language="javascript" type="text/javascript" ></script>
     <script src="js/prettify/prettify.js" language="javascript" type="text/javascript" ></script>
@@ -42,6 +43,38 @@
     <div id='container'>
       <div class='wrapper'>
         <div class='wrapper_right'>
+          <h1>Mac 上安裝 ElasticaSearch</h1>
+
+          <h2>安裝步驟</h2>
+          <ul class='f'>
+            <li>先安裝 <a href='http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html' target='_blank'>Java SDK</a>。</li>
+            <li>Brew 安裝：<span>brew install elasticsearch</span>。</li>
+            <li>設定指向：<span>ln -sfv /usr/local/opt/elasticsearch/*.plist ~/Library/LaunchAgents</span>。</li>
+            <li>開啟 Elastica Search<span>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist</span>。</li>
+            <li>關閉 Elastica Search<span>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist</span>。</li>
+          </ul>
+
+          <h2>改使用 elasticsearch-rtf</h2>
+          <ul class='f'>
+            <li>移至資料夾：<span>cd /usr/local/Cellar/elasticsearch</span>。</li>
+            <li>複製下載 elasticsearch-rtf：<span>git clone https://github.com/medcl/elasticsearch-rtf 1.0.0</span>。</li>
+            <li>切換 elasticsearch-rtf：<span>brew switch elasticsearch 1.0.0</span>。</li>
+          </ul>
+
+          <h2>安裝 plugin _head</h2>
+          <ul class='f'>
+            <li>移至資料夾：<span>cd /usr/local/var/lib/elasticsearch/plugins/</span>。</li>
+            <li>安裝 Plugin：<span>plugin -install mobz/elasticsearch-head</span>。</li>
+            <li>使用瀏覽器開啟：<a href='http://127.0.0.1:9200/_plugin/head/' target='_blank'>http://127.0.0.1:9200/_plugin/head/</a>。</li>
+          </ul>
+
+          <h2>相關參考</h2>
+          <ul class='f'>
+            <li>Elastica Search：<a href='https://www.elastic.co/' target='_blank'>https://www.elastic.co/</a>。</li>
+            <li>Elasticsearch权威指南：<a href='http://es.xiaoleilu.com/010_Intro/00_README.html' target='_blank'>http://es.xiaoleilu.com/010_Intro/00_README.html</a>。</li>
+            <li>專業５樓：<a href='https://5fpro.hackpad.com/ElasticSearch-Vt6EeHurnKr' target='_blank'>https://5fpro.hackpad.com/ElasticSearch-Vt6EeHurnKr</a>。</li>
+          </ul>
+
         </div>
       </div>
     </div>

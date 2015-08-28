@@ -23,20 +23,35 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px;
+    text-transform: none;
     + .info {
       padding-left: 5px;
+    }
+  }
+  pre {
+    &.struct {
+      padding-left: 20px;
+      a {
+        @include a;
+      }
+    }
+    + .desc {
+      margin-top: 20px;
+    }
+    + ul.d {
+      margin-top: 20px;
     }
   }
   a {
     &.a {
 
         &:before {
-          display: block; 
-          content: " "; 
-          margin-top: 0 - (500px); 
-          height: (500px); 
-          visibility: hidden; 
-        } 
+          display: block;
+          content: " ";
+          margin-top: 0 - (500px);
+          height: (500px);
+          visibility: hidden;
+        }
     }
   }
   .info {
@@ -51,6 +66,9 @@
   .desc {
     margin-top: 5px;
     padding-left: 18px;
+    a {
+      @include a(1px);
+    }
     + .tabs {
       margin-top: 10px;
     }
@@ -59,7 +77,6 @@
     }
     span {
       padding: 0 4px;
-      font-weight: bold;
       border: 1px solid rgba(254, 236, 191, .7);
       background-color: rgba(254, 236, 191, .5);
       @include border-radius(3px);
@@ -69,6 +86,23 @@
     + h2, + a {
       margin-top: 40px;
     }
+    &.f {
+      li {
+        a {
+          @include a(1px);
+        }
+        + li {
+          margin-top: 8px;
+
+          span {
+            padding: 0 4px;
+            border: 1px solid rgba(254, 236, 191, .7);
+            background-color: rgba(254, 236, 191, .5);
+            @include border-radius(3px);
+          }
+        }
+      }
+    }
     &.i {
       margin-top: 3px;
       li {
@@ -77,10 +111,16 @@
         }
         span {
           padding: 0 4px;
-          font-weight: bold;
           border: 1px solid rgba(254, 236, 191, .7);
           background-color: rgba(254, 236, 191, .5);
           @include border-radius(3px);
+        }
+      }
+      &.d {
+        > li {
+          + li {
+            margin-top: 10px;
+          }
         }
       }
     }
@@ -98,6 +138,11 @@
     &.l {
       font-size: 16px;
 
+      li {
+        a {
+          @include a(1px);
+        }
+      }
       &.b {
         margin-bottom: 3px;
       }
