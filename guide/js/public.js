@@ -7,17 +7,16 @@
 var ENVIRONMENT = 'production';
 
 if (ENVIRONMENT == 'dev') {
-  window.url = 'http://dev.comdan66.github.io/OA-ElasticaSearch/guide/';
+  window.url = 'http://dev.works.ioa.tw/OA-ElasticaSearch/guide/';
 } else {
-  window.url = 'http://comdan66.github.io/OA-ElasticaSearch/guide/';
+  window.url = 'http://works.ioa.tw/OA-ElasticaSearch/guide/';
 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-46121102-7', 'auto');
-  ga('require', 'displayfeatures');
+  ga('create', 'UA-46121102-26', 'auto');
   ga('send', 'pageview');
 }
 
@@ -90,14 +89,14 @@ $(function () {
         {target: '_blank', href: 'http://www.ioa.tw', text: '作者', class: 'icon-user', },
         {target: '_blank', href: 'https://github.com/comdan66', text: 'GitHub', class: 'icon-github', },
         {target: '_blank', href: 'https://www.facebook.com/comdan66', text: 'Facebook', class: 'icon-facebook-square', },
-        {target: '_blank', href: 'http://comdan66.github.io/', text: '更多', class: 'icon-more', },
+        {target: '_blank', href: 'http://works.ioa.tw/', text: '更多', class: 'icon-more', },
       ]
     }
   ];
 
   var optionMenu = [
     {text: '原始碼', href: 'https://github.com/comdan66/OA-ElasticaSearch', target: '_blank', class: ''},
-    {text: '更多作品', href: 'http://comdan66.github.io/', target: '_blank', class: ''},
+    {text: '更多作品', href: 'http://works.ioa.tw/', target: '_blank', class: ''},
     {text: 'GitHub', href: 'https://github.com/comdan66', target: '_blank', class: ''},
     {text: '作者', href: 'https://www.facebook.com/comdan66', target: '_blank', class: 'top_line'},
   ];
@@ -167,27 +166,27 @@ $(function () {
   $('.tabs > * > *:first-child').click ();
 
   $('.prettyprint').addClass ('linenums');
-  prettyPrint ();
+  // prettyPrint ();
 
-  $('.prettyprint ol').each (function () {
-    var $li = $(this).find ('li');
+  // $('.prettyprint ol').each (function () {
+  //   var $li = $(this).find ('li');
 
-    var min = $li.map (function () {
-      var l = ($(this).children ().first ().html ().match (/\s/g) || []).length;
+  //   var min = $li.map (function () {
+  //     var l = ($(this).children ().first ().html ().match (/\s/g) || []).length;
 
-      return ($(this).children ().length > 1) ? l : null;
-    }).filter (function (t) {
-      return this;
-    }).toArray ();
+  //     return ($(this).children ().length > 1) ? l : null;
+  //   }).filter (function (t) {
+  //     return this;
+  //   }).toArray ();
 
-    if (min)
-      min = min.min ();
+  //   if (min)
+  //     min = min.min ();
 
-    $li.each (function () {
-      var $first = $(this).children ().first ();
-      $first.html ($first.html ().replace(new RegExp("\\s{" + min + "}"), ''));
-    });
-  });
+  //   $li.each (function () {
+  //     var $first = $(this).children ().first ();
+  //     $first.html ($first.html ().replace(new RegExp("\\s{" + min + "}"), ''));
+  //   });
+  // });
 
   var hash = window.location.hash.trim ().slice (1);
   if (hash && $('.' + hash).length)

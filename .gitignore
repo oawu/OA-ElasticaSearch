@@ -4,5 +4,4 @@ sftp-config*
 guide/cmd/.sass-cache/*
 
 guide/cmd/node_modules/*
-guide/cmd/.sass-cache/*
 guide/cmd/npm-debug.log

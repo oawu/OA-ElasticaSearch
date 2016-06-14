@@ -16,7 +16,7 @@
     <meta property="og:site_name" content="OA-ElasticaSearch" />
     <meta property="og:title" content="更新 (Update) - OA-ElasticaSearch" />
     <meta property="og:description" content="這是一個 Elastica Search 基本 CRUD 的使用工具，架構於 Elastica Library，將讀取出來的資料物件化，以及包裝成方便開發的工具。查詢出來的每一筆資料，再將其封裝成物件單位，方便於物件化思維的設計。每筆物件皆可繼承基礎的 修改、刪除 的實體方法。" />
-    <meta property="og:url" content="http://comdan66.github.io/OA-ElasticaSearch/guide/update.html" />
+    <meta property="og:url" content="http://works.ioa.tw/OA-ElasticaSearch/guide/update.html" />
 
     <meta property="fb:admins" content="100000100541088" />
     <meta property="fb:app_id" content="640377126095413" />
@@ -25,7 +25,7 @@
     <meta property="og:locale:alternate" content="en_US" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="http://comdan66.github.io/OA-ElasticaSearch/guide/img/og/update.png" alt="OA-ElasticaSearch" />
+    <meta property="og:image" content="http://works.ioa.tw/OA-ElasticaSearch/guide/img/og/update.png" alt="OA-ElasticaSearch" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -53,16 +53,16 @@
             <div>
               <div>
                 <pre class='php prettyprint'>
-                  // 藉由 id 等於 1
-                  $user = User::find(&#39;one&#39;, array(
-                      &#39;must&#39; =&gt; array(&#39;id&#39; =&gt; 1)
-                    ));
+  // 藉由 id 等於 1
+  $user = User::find(&#39;one&#39;, array(
+      &#39;must&#39; =&gt; array(&#39;id&#39; =&gt; 1)
+    ));
 
-                  // 設定欄位
-                  $user-&gt;account = &#39;comdan66&#39;;
+  // 設定欄位
+  $user-&gt;account = &#39;comdan66&#39;;
 
-                   // 儲存更新
-                  $user-&gt;save();
+   // 儲存更新
+  $user-&gt;save();
                 </pre>
               </div>
               <div class='i'>
@@ -83,19 +83,19 @@
             <div>
               <div>
                 <pre class='php prettyprint'>
-                  // 欲新增的資料
-                  $params = array(
-                      'id' =&gt; 1,
-                      'account' =&gt; 'oa',
-                      'name' =&gt; &quot;吳政賢&quot;,
-                      'age' =&gt; 30,
-                      'skills' =&gt; array(
-                          'JavaScript', 'java', 'object-C'
-                        )
-                    );
+  // 欲新增的資料
+  $params = array(
+      'id' =&gt; 1,
+      'account' =&gt; 'oa',
+      'name' =&gt; &quot;吳政賢&quot;,
+      'age' =&gt; 30,
+      'skills' =&gt; array(
+          'JavaScript', 'java', 'object-C'
+        )
+    );
 
-                  // 依據 primary_key 欄位更新該筆資料
-                  User::update($params);
+  // 依據 primary_key 欄位更新該筆資料
+  User::update($params);
                 </pre>
               </div>
               <div class='i'>
@@ -116,25 +116,25 @@
             <div>
               <div>
                 <pre class='php prettyprint'>
-                  $params = array(
-                      array(
-                        'id' =&gt; 1,
-                        'account' =&gt; 'oa',
-                        'name' =&gt; &quot;吳政賢&quot;,
-                        'age' =&gt; 30,
-                        'skills' =&gt; array(
-                            'JavaScript', 'java', 'object-C'
-                          )
-                      ), array(
-                        'id' =&gt; 2,
-                        'account' =&gt; 'Linux',
-                        'name' =&gt; &quot;OB Wu&quot;,
-                        'age' =&gt; 18,
-                        'skills' =&gt; array()
-                      )
-                    );
-                  // 依據各筆資料的 primary_key 欄位更新該筆資料
-                  $users = User::updateMany($params);
+  $params = array(
+      array(
+        'id' =&gt; 1,
+        'account' =&gt; 'oa',
+        'name' =&gt; &quot;吳政賢&quot;,
+        'age' =&gt; 30,
+        'skills' =&gt; array(
+            'JavaScript', 'java', 'object-C'
+          )
+      ), array(
+        'id' =&gt; 2,
+        'account' =&gt; 'Linux',
+        'name' =&gt; &quot;OB Wu&quot;,
+        'age' =&gt; 18,
+        'skills' =&gt; array()
+      )
+    );
+  // 依據各筆資料的 primary_key 欄位更新該筆資料
+  $users = User::updateMany($params);
                 </pre>
               </div>
               <div class='i'>

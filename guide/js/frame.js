@@ -32,7 +32,7 @@ $(function () {
         {target: '_self', href: 'github.html', text: 'GitHub', class: 'icon-github', },
         {target: '_self', href: 'https://github.com/comdan66/OA-ElasticaSearch/archive/master.zip', text: '下載', class: 'icon-in', },
         {target: '_self', href: 'about.html', text: '關於', class: 'icon-exclamation', },
-        {target: '_blank', href: 'http://comdan66.github.io/', text: '更多', class: 'icon-more', },
+        {target: '_blank', href: 'http://works.ioa.tw/', text: '更多', class: 'icon-more', },
       ]
     }
   ];
@@ -40,7 +40,7 @@ $(function () {
   var optionMenu = [
     {text: '關於作品', href: 'about.html', target: '_self', class: ''},
     {text: '原始碼', href: 'https://github.com/comdan66/OA-ElasticaSearch', target: '_blank', class: ''},
-    {text: '更多作品', href: 'http://comdan66.github.io/', target: '_blank', class: ''},
+    {text: '更多作品', href: 'http://works.ioa.tw/', target: '_blank', class: ''},
     {text: 'GitHub', href: 'https://github.com/comdan66', target: '_blank', class: ''},
     {text: '作者', href: 'https://www.facebook.com/comdan66', target: '_blank', class: 'top_line'},
   ];

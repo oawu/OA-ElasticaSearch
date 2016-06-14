@@ -16,7 +16,7 @@
     <meta property="og:site_name" content="OA-ElasticaSearch" />
     <meta property="og:title" content="刪除 (Delete) - OA-ElasticaSearch" />
     <meta property="og:description" content="這是一個 Elastica Search 基本 CRUD 的使用工具，架構於 Elastica Library，將讀取出來的資料物件化，以及包裝成方便開發的工具。查詢出來的每一筆資料，再將其封裝成物件單位，方便於物件化思維的設計。每筆物件皆可繼承基礎的 修改、刪除 的實體方法。" />
-    <meta property="og:url" content="http://comdan66.github.io/OA-ElasticaSearch/guide/delete.html" />
+    <meta property="og:url" content="http://works.ioa.tw/OA-ElasticaSearch/guide/delete.html" />
 
     <meta property="fb:admins" content="100000100541088" />
     <meta property="fb:app_id" content="640377126095413" />
@@ -25,7 +25,7 @@
     <meta property="og:locale:alternate" content="en_US" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="http://comdan66.github.io/OA-ElasticaSearch/guide/img/og/delete.png" alt="OA-ElasticaSearch" />
+    <meta property="og:image" content="http://works.ioa.tw/OA-ElasticaSearch/guide/img/og/delete.png" alt="OA-ElasticaSearch" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -53,13 +53,13 @@
             <div>
               <div>
                 <pre class='php prettyprint'>
-                  // 藉由 id 等於 1
-                  $user = User::find('one', array(
-                      'must' =&gt; array('id' =&gt; 1)
-                    ));
+  // 藉由 id 等於 1
+  $user = User::find('one', array(
+      'must' =&gt; array('id' =&gt; 1)
+    ));
 
-                  // 刪除
-                  $user-&gt;delete();
+  // 刪除
+  $user-&gt;delete();
                 </pre>
               </div>
               <div class='i'>
@@ -80,10 +80,10 @@
             <div>
               <div>
                 <pre class='php prettyprint'>
-                  $ids = array(1, 2, 3);
+  $ids = array(1, 2, 3);
 
-                  // 依據 primary_key 欄位值陣列刪除
-                  User::deleteMany ($ids);
+  // 依據 primary_key 欄位值陣列刪除
+  User::deleteMany ($ids);
                 </pre>
               </div>
               <div class='i'>
