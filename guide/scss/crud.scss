@@ -244,6 +244,8 @@
           .prettyprint {
             @include paper('pure');
             padding: 4px;
+            border: 1px solid rgba(203, 203, 202, .35);
+            @include box-shadow(none);
 
           }
           &.i {
